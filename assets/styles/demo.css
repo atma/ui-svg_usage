@@ -1,0 +1,139 @@
+body {
+  color: #333;
+}
+main {
+  max-width: 940px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+.intro {
+  text-align: center;
+}
+.result {
+  margin-bottom: 2em;
+}
+
+.svg__heart--heart {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -moz-transform-origin: 30px 30px;
+
+  -webkit-animation: heartbeat 1400ms ease 0s infinite normal;
+  animation: heartbeat 1400ms ease 0s infinite normal;
+}
+.svg__heart--sparkle-group {
+  -webkit-animation: blinking 6s ease 0s infinite;
+  animation: blinking 6s ease 0s infinite;
+}
+
+.svg-icon {
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 128px 128px;
+}
+.svg-icon--small {
+  width: 64px;
+  height: 64px;
+  background-size: 64px 64px;
+}
+.svg-icon--tiny {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+}
+.svg-icon__store {
+  background-image: url(../images/store.svg);
+}
+.svg-inline {
+
+}
+.svg-inline .svg-inline__bg {
+  -webkit-transition: fill .25s ease-out;
+  transition: fill .25s ease-out;
+}
+.svg-inline:hover .svg-inline__bg {
+  fill: #E2574C;
+}
+
+.svg-sprite-icon {
+  width: 128px;
+  height: 128px;
+}
+.svg-sprite-icon--small {
+  width: 64px;
+  height: 64px;
+}
+.svg-sprite-icon--tiny {
+  width: 32px;
+  height: 32px;
+}
+
+.no-svg .js-fallback-icon {
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+  background: url(../images/like.png) center center no-repeat;
+}
+
+.svg-icon-bg-fallback {
+  display: inline-block;
+  background: url(../images/wallet.png);
+  background: url(../images/wallet.svg), linear-gradient(transparent, transparent);
+  background-size: 128px 128px;
+  width: 128px;
+  height: 128px;
+}
+
+.svg-icon-that-works {
+  background: url('../images/computer.png');
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+}
+
+@-webkit-keyframes heartbeat {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  14% {
+    -webkit-transform: scale(1.4);
+  }
+  28% {
+    -webkit-transform: scale(1);
+  }
+  42% {
+    -webkit-transform: scale(1.3);
+  }
+  70% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.4);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes blinking {
+  0% { opacity: 1; }
+  65% { opacity: .25; }
+}
+@keyframes blinking {
+  0% { opacity: 1; }
+  65% { opacity: .25; }
+}

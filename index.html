@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>SVG usage</title>
+
+    <link href="assets/styles/normalize.css" rel="stylesheet" />
+    <link href="assets/styles/demo.css" rel="stylesheet" />
+    <link href="assets/styles/prism.css" rel="stylesheet" />
+
+    <style>
+     .nicolas_cage {
+         background: url('nicolas_cage.jpg');
+         width: 20px;
+         height: 15px;
+     }
+     .fallback {
+     }
+    </style>
+</head>
+
+<body>
+<main>
+  <p class="intro">
+    <svg height="128" width="128" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="svg__heart"><path d="M50 0c27.613 0 50 22.386 50 50s-22.387 50-50 50c-27.614 0-50-22.386-50-50s22.386-50 50-50z" fill="#EFC75E"/><g class="svg__heart--heart"><path d="M23.594 32.664c9.478-9.633 18.871-5.424 26.396 1.448 7.521-6.872 16.841-11.158 26.394-1.448 7.445 7.565 7.485 19.724 0 27.25-12.557 11.481-19.12 17.474-22.552 20.601-2.146 1.958-5.395 1.964-7.551.017-3.457-3.123-10.063-9.115-22.688-20.617-7.485-7.527-7.446-19.686.001-27.251z" fill="#E2574C"/><path d="M25.001 45.688c0-6.444 5.241-11.686 11.685-11.686.727 0 1.313.588 1.313 1.313s-.588 1.313-1.313 1.313c-4.994 0-9.058 4.064-9.058 9.06 0 .726-.588 1.313-1.313 1.313-.725-.001-1.314-.588-1.314-1.313z" fill="#E66E65"/><path d="M48.453 78.609c-3.457-3.123-10.062-9.115-22.688-20.617l-.054-.059-1.119-1.02c-4.93-4.959-6.574-11.921-5.01-18.261-3.022 7.047-1.714 15.504 4.01 21.261 12.625 11.503 19.23 17.494 22.689 20.617 2.156 1.947 5.404 1.94 7.551-.017l1.802-1.644c-2.137 1.653-5.142 1.582-7.181-.26z" fill="#CB4E44" class="svg__heart--reflex"/></g><path d="M15.667 73.668c3-.332 4.667-2 5-5 .333 3 2 4.668 5 5-3 .334-4.667 2-5 5-.333-2.998-2-4.666-5-5zM74 71.002c-.332 2.998-2 4.666-5 5 3 .332 4.668 2 5 4.998.334-2.998 2.001-4.666 5.001-4.998-3-.334-4.667-2.002-5.001-5zm-34-61.001c-.332 2.999-2 4.667-5 5 3 .333 4.668 2 5 4.999.334-2.999 2.001-4.667 5.001-4.999-3-.333-4.667-2.001-5.001-5z" fill="#fff" class="svg__heart--sparkle svg__heart--sparkle-group" /><path d="M67 33.003c5.4-.601 8.4-3.603 9.001-9 .601 5.398 3.601 8.4 9.001 9-5.4.599-8.4 3.6-9.001 8.999-.601-5.398-3.601-8.399-9.001-8.999z" fill="#FCF4DF" class="svg__heart--sparkle svg__heart--sparkle-single"/><path d="M78.783 35.637c-.689-1.048-1.487-2.046-2.399-2.973-.979-.996-1.956-1.836-2.929-2.55-1.51 1.604-3.652 2.578-6.455 2.89 5.4.599 8.4 3.6 9.001 8.999.306-2.744 1.237-4.862 2.782-6.366z" fill="#F9DDDB"/></svg>
+  </p>
+  <p>SVG is an image format for vector graphics. It literally means <strong>Scalable Vector Graphics</strong>.</p>
+
+  <h2>Why use SVG at all?</h2>
+  <ul>
+    <li>Small file sizes that compress well</li>
+    <li>Scales to any size without losing clarity (except very tiny)</li>
+    <li>Looks great on retina displays</li>
+    <li>Design control like interactivity and filters</li>
+  </ul>
+
+  <h2>Basic usage</h2>
+
+  <h3>Using SVG as an &lt;img&gt;</h3>
+
+  <pre><code class="language-markup">  &lt;img src="gift.svg" width="128" height="128" alt="Gift">
+  &lt;img src="gift.svg" width="64" height="64" alt="Gift smaller">
+  &lt;img src="gift.svg" width="32" height="32" alt="Gift tiny"></code></pre>
+
+  <div class="result">
+  <img src="assets/images/gift.svg" alt="Gift" width="128" height="128">
+  <img src="assets/images/gift.svg" alt="Gift smaller" width="64" height="64">
+  <img src="assets/images/gift.svg" alt="Gift tiny" width="32" height="32">
+  </div>
+
+  <h4><a href="http://caniuse.com/#feat=svg-img">Browser support</a></h4>
+  <p>It works everywhere except IE 8 and down and Android 2.3 and down.</p>
+
+  <h3>Using SVG as a background-image</h3>
+  <pre><code class="language-css">  .svg-icon {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(store.svg);
+    background-size: 128px 128px;
+  }</code></pre>
+  <pre><code class="language-markup">  &lt;span class="svg-icon">&lt;/span></code></pre>
+
+  <div class="result">
+    <span class="svg-icon svg-icon__store"></span>
+    <span class="svg-icon svg-icon__store svg-icon--small"></span>
+    <span class="svg-icon svg-icon__store svg-icon--tiny"></span>
+  </div>
+
+  <h4><a href="http://caniuse.com/#feat=svg-css">Browser support</a></h4>
+  <p>It works everywhere except IE 8 and down and Android 2.3 and down.</p>
+
+  <h3>Using "inline" SVG</h3>
+  <pre><code class="language-markup">  &lt;div>
+    &lt;svg xmlns="http://www.w3.org/2000/svg" height="256" width="256" viewBox="0 0 100 100">&lt;g>...&lt;/g>&lt;/svg>
+  &lt;/div></code></pre>
+
+  <p>Inline SVG is a part of DOM so you can control it with CSS! Hover over credit card below to see the result.</p>
+  <div class="result">
+    <svg height="128px" width="155px" viewBox="0 0 155 155" xmlns="http://www.w3.org/2000/svg" class="svg-inline"><g><circle cx="77.5" cy="77.5" fill="#FD8369" r="77.5" class="svg-inline__bg"/><path d="M118.78,50.39c-0.811-0.81-1.88-1.22-2.95-1.22H39.16c-1.061,0.01-2.13,0.41-2.94,1.22   C35.41,51.2,35,52.27,35,53.34v48.33c0,1.061,0.41,2.14,1.22,2.95l49.893,49.893c35.915-3.973,64.423-32.479,68.399-68.392   L118.78,50.39z" fill="#EA6552"/><g><path clip-rule="evenodd" d="M115.835,49.17c1.063-0.002,2.131,0.41,2.944,1.219    c0.809,0.813,1.221,1.875,1.221,2.949l-0.005,48.332c0.005,1.063-0.407,2.139-1.22,2.945c-0.813,0.822-1.878,1.215-2.943,1.215    H39.163c-1.065,0-2.13-0.396-2.946-1.211C35.412,103.809,35,102.732,35,101.67l0.003-48.332c0-1.07,0.405-2.135,1.216-2.949    c0.814-0.809,1.883-1.213,2.944-1.219H115.835z" fill="#FFFFFF" fill-rule="evenodd"/><g><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.5" width="13.288" x="45.585" y="95.021"/><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.493" width="13.289" x="62.428" y="95.021"/><polygon clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" points="92.569,97.521 79.278,97.515 79.278,95.021      92.569,95.021    "/><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.5" width="13.285" x="96.125" y="95.021"/></g><rect clip-rule="evenodd" fill="#D9D8D7" fill-rule="evenodd" height="9" width="30.132" x="45.585" y="77.748"/><rect clip-rule="evenodd" fill="#343B43" fill-rule="evenodd" height="12" width="84.997" x="35.003" y="57.476"/><circle clip-rule="evenodd" cx="93.959" cy="82.248" fill="#FECE66" fill-rule="evenodd" r="6.623"/><circle clip-rule="evenodd" cx="102.79" cy="82.248" fill="#343B43" fill-rule="evenodd" r="6.623"/></g></g></svg>
+    <svg height="64px" width="64px" viewBox="0 0 155 155" xmlns="http://www.w3.org/2000/svg" class="svg-inline"><g><circle cx="77.5" cy="77.5" fill="#FD8369" r="77.5" class="svg-inline__bg"/><path d="M118.78,50.39c-0.811-0.81-1.88-1.22-2.95-1.22H39.16c-1.061,0.01-2.13,0.41-2.94,1.22   C35.41,51.2,35,52.27,35,53.34v48.33c0,1.061,0.41,2.14,1.22,2.95l49.893,49.893c35.915-3.973,64.423-32.479,68.399-68.392   L118.78,50.39z" fill="#EA6552"/><g><path clip-rule="evenodd" d="M115.835,49.17c1.063-0.002,2.131,0.41,2.944,1.219    c0.809,0.813,1.221,1.875,1.221,2.949l-0.005,48.332c0.005,1.063-0.407,2.139-1.22,2.945c-0.813,0.822-1.878,1.215-2.943,1.215    H39.163c-1.065,0-2.13-0.396-2.946-1.211C35.412,103.809,35,102.732,35,101.67l0.003-48.332c0-1.07,0.405-2.135,1.216-2.949    c0.814-0.809,1.883-1.213,2.944-1.219H115.835z" fill="#FFFFFF" fill-rule="evenodd"/><g><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.5" width="13.288" x="45.585" y="95.021"/><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.493" width="13.289" x="62.428" y="95.021"/><polygon clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" points="92.569,97.521 79.278,97.515 79.278,95.021      92.569,95.021    "/><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.5" width="13.285" x="96.125" y="95.021"/></g><rect clip-rule="evenodd" fill="#D9D8D7" fill-rule="evenodd" height="9" width="30.132" x="45.585" y="77.748"/><rect clip-rule="evenodd" fill="#343B43" fill-rule="evenodd" height="12" width="84.997" x="35.003" y="57.476"/><circle clip-rule="evenodd" cx="93.959" cy="82.248" fill="#FECE66" fill-rule="evenodd" r="6.623"/><circle clip-rule="evenodd" cx="102.79" cy="82.248" fill="#343B43" fill-rule="evenodd" r="6.623"/></g></g></svg>
+    <svg height="32px" width="32px" viewBox="0 0 155 155" xmlns="http://www.w3.org/2000/svg" class="svg-inline"><g><circle cx="77.5" cy="77.5" fill="#FD8369" r="77.5" class="svg-inline__bg"/><path d="M118.78,50.39c-0.811-0.81-1.88-1.22-2.95-1.22H39.16c-1.061,0.01-2.13,0.41-2.94,1.22   C35.41,51.2,35,52.27,35,53.34v48.33c0,1.061,0.41,2.14,1.22,2.95l49.893,49.893c35.915-3.973,64.423-32.479,68.399-68.392   L118.78,50.39z" fill="#EA6552"/><g><path clip-rule="evenodd" d="M115.835,49.17c1.063-0.002,2.131,0.41,2.944,1.219    c0.809,0.813,1.221,1.875,1.221,2.949l-0.005,48.332c0.005,1.063-0.407,2.139-1.22,2.945c-0.813,0.822-1.878,1.215-2.943,1.215    H39.163c-1.065,0-2.13-0.396-2.946-1.211C35.412,103.809,35,102.732,35,101.67l0.003-48.332c0-1.07,0.405-2.135,1.216-2.949    c0.814-0.809,1.883-1.213,2.944-1.219H115.835z" fill="#FFFFFF" fill-rule="evenodd"/><g><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.5" width="13.288" x="45.585" y="95.021"/><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.493" width="13.289" x="62.428" y="95.021"/><polygon clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" points="92.569,97.521 79.278,97.515 79.278,95.021      92.569,95.021    "/><rect clip-rule="evenodd" fill="#CCCBCA" fill-rule="evenodd" height="2.5" width="13.285" x="96.125" y="95.021"/></g><rect clip-rule="evenodd" fill="#D9D8D7" fill-rule="evenodd" height="9" width="30.132" x="45.585" y="77.748"/><rect clip-rule="evenodd" fill="#343B43" fill-rule="evenodd" height="12" width="84.997" x="35.003" y="57.476"/><circle clip-rule="evenodd" cx="93.959" cy="82.248" fill="#FECE66" fill-rule="evenodd" r="6.623"/><circle clip-rule="evenodd" cx="102.79" cy="82.248" fill="#343B43" fill-rule="evenodd" r="6.623"/></g></g></svg>
+  </div>
+
+  <h4><a href="http://caniuse.com/#feat=svg-html5">Browser support</a></h4>
+  <p>Again, it works everywhere except IE 8 and down and Android 2.3 and down.</p>
+
+  <h3>Using SVG as an &lt;object&gt;</h3>
+
+  <pre><code class="language-markup">  &lt;object type="image/svg+xml" data="currency.svg" class="currency">
+    &lt;!-- Ideal place for fallback image in CSS -->
+  &lt;/object></code></pre>
+
+  <div class="result">
+    <object type="image/svg+xml" data="assets/images/currency.svg" class="currency" width="128" height="128"></object>
+    <object type="image/svg+xml" data="assets/images/currency.svg" class="currency" width="64" height="64"></object>
+    <object type="image/svg+xml" data="assets/images/currency.svg" class="currency" width="32" height="32"></object>
+  </div>
+
+  <h3>Base64 encoded SVG in data URI</h3>
+  <p>Encoded SVG can be used in the same manner as a normal one but with no additional HTTP request.
+     This method is not recommended, see the next section.</p>
+
+  <h4>As &lt;img&gt;</h4>
+  <pre><code class="language-markup">&lt;img src="data:image/svg+xml;base64,[data]"></code></pre>
+
+  <h4>As CSS</h4>
+  <pre><code class="language-css">.svg-icon {
+  background: url("data:image/svg+xml;base64,[data]");
+}</code></pre>
+
+  <h4>As &lt;object&gt;</h4>
+  <pre><code class="language-markup">&lt;object type="image/svg+xml" data="data:image/svg+xml;base64,[data]">
+  fallback
+&lt;/object></code></pre>
+
+  <h3>Raw SVG in data URI</h3>
+  <p>Base64 encoded SVG can produce a larger result than the raw code, it is unreadable and not so flexible.
+     Prefer the raw SVG in the next manner:</p>
+
+  <h4>As &lt;img&gt;</h4>
+  <pre><code class="language-markup">&lt;img src="data:image/svg+xml;utf8,&lt;svg>[svg code]&lt;/svg>"></code></pre>
+
+  <h4>As CSS</h4>
+  <pre><code class="language-css">.svg-icon {
+  background: url("data:image/svg+xml;utf8,&lt;svg>[svg code]&lt;/svg>");
+}</code></pre>
+
+  <h4>As &lt;object&gt;</h4>
+  <pre><code class="language-markup">&lt;object type="image/svg+xml" data="data:image/svg+xml;utf8,&lt;svg>[svg code]&lt;/svg>">
+  fallback
+&lt;/object></code></pre>
+
+ <h3>SVG "sprites"</h3>
+ <p>SVG has a brilliant technique that is similar to bitmap sprites.
+    It permit to use the collection of &lt;symbol> elements in a single SVG instead making HTTP request for every image.
+     You can define the viewBox directly on the &lt;symbol> and then not need one when you &lt;use> it later in an &lt;svg>.
+     Every &lt;symbol> must have an ID to make the reference to the specific &lt;symbol> in a collection with &lt;use>.</p>
+
+ <h4>SVG symbols collection in an external file</h4>
+ <pre><code class="language-markup"> &lt;!-- Symbols collection definition. External icons.svg file -->
+ &lt;svg xmlns="http://www.w3.org/2000/svg">
+   &lt;symbol viewBox="0 0 100 100" id="facebook">
+     &lt;title>Facebook&lt;/title>
+    &lt;g>
+      &lt;circle ...
+    &lt;/g>
+  &lt;/symbol>
+  &lt;symbol viewBox="0 0 100 100" id="twitter">
+    &lt;title>Twitter&lt;/title>
+    &lt;g>
+      &lt;circle ...
+    &lt;/g>
+  &lt;/symbol>
+&lt;/svg></code></pre>
+
+ <pre><code class="language-markup"> &lt;!-- Usage in HTML document -->
+ &lt;svg class="svg-sprite">
+   &lt;use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#facebook">&lt;/use>
+ &lt;/svg>
+ &lt;svg class="svg-sprite">
+   &lt;use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#twitter">&lt;/use>
+ &lt;/svg></code></pre>
+
+ <h4>Inline symbols collection definition</h4>
+ <pre><code class="language-markup">&lt;body>
+   &lt;!-- symbols definition -->
+   &lt;svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+     &lt;symbol id="facebook" viewBox="0 0 100 100">
+       &lt;title>original-file's-title or just friendly symbol's name&lt;/title>
+       &lt;description>Some short description to not forget what is this and where it from&lt;/description>
+       &lt;!-- symbol code -->
+     &lt;/symbol>
+     &lt;symbol id="twitter" viewBox="0 0 100 100">
+       &lt;!-- symbol code -->
+     &lt;/symbol>
+   &lt;/svg>
+
+   &lt;!-- symbols usage -->
+   &lt;svg class="icon">
+     &lt;use xlink:href="#facebook" />
+   &lt;/svg>
+   &lt;svg class="icon" style="width: 256px; height: 256px">
+     &lt;use xlink:href="#twitter" />
+   &lt;/svg>
+&lt;/body></code></pre>
+
+ <div class="result">
+   <svg class="svg-sprite-icon">
+     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#facebook"></use>
+   </svg>
+   <svg class="svg-sprite-icon svg-sprite-icon--small">
+     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#facebook"></use>
+   </svg>
+   <svg class="svg-sprite-icon svg-sprite-icon--tiny">
+     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#facebook"></use>
+   </svg>
+   <svg class="svg-sprite-icon">
+     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#twitter"></use>
+   </svg>
+   <svg class="svg-sprite-icon--small">
+     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#twitter"></use>
+   </svg>
+   <svg class="svg-sprite-icon--tiny">
+     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#twitter"></use>
+   </svg>
+ </div>
+
+ <h4><a href="http://caniuse.com/#feat=svg-fragment">Browser support</a></h4>
+ <p>There is the difference between external collections definition and inline. Inline definition has better support,
+  it works in IE9+, Chrome 35+, FF 15+, Safari 7.1+, Android 40+, BB 10+. Collections in external files are not supported
+  by IE at all. Luckily there is the polyfill <a href="https://github.com/jonathantneal/svg4everybody">svg4everybody</a>
+  that enables this functionality in all browsers that supports basic SVG and as a bonus provides fallback to .png in
+  older browsers.</p>
+
+ <p>svg4everybody is only 64 sloc but there is even smaller solution that does almost the same:</p>
+ <pre><code class="language-javascript">
+   (/MSIE|Trident/.test(navigator.userAgent) || /Edge\/12/.test(navigator.userAgent) || (navigator.userAgent.match(/AppleWebKit\/(\d+)/) || [])[1] < 537) && document.addEventListener('DOMContentLoaded', function () {
+    [].forEach.call(document.querySelectorAll('svg'), function (svg) {
+      var use = svg.querySelector('use');
+
+      if (use) {
+        var object = document.createElement('object');
+        object.data = use.getAttribute('xlink:href');
+        object.className = svg.getAttribute('class');
+        svg.parentNode.replaceChild(object, svg);
+      }
+    });
+  });</code></pre>
+
+
+  <h2>Fallbacks</h2>
+  <p>There are a lot of solutions that provides fallback to SVG for older browsers like an IE8 or Android 2.x.</p>
+
+  <h3>Javascript fallbacks</h3>
+  <p>Javascript is the easiest way, just check for SVG support, add special CSS class and provide some CSS fallback.</p>
+
+  <pre><code class="language-javascript">// Vanilla JS checker
+if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) {
+    document.documentElement.className += ' no-svg';
+}</code></pre>
+
+<pre><code class="language-javascript">// Check with Modernizr
+if (!Modernizr.svg) {
+  document.documentElement.className += ' no-svg';
+}</code></pre>
+
+  <p>Example usage</p>
+  <pre><code class="language-markup">&lt;head>
+  .no-svg .icon {
+    display: inline-block;
+    width: 128px;
+    height: 128px;
+    background-image: url(icon.png);
+  }
+&lt;/head>
+&lt;body>
+  &lt;object type="image/svg+xml" data="icon.svg" class="icon">&lt;/object>
+&lt;/body></code></pre>
+
+  <div class="result" id="js-fallback-result">
+    <object type="image/svg+xml" data="assets/images/like.svg" class="js-fallback-icon" width="128px" height="128px"></object>
+  </div>
+  <script>
+  if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) {
+      document.getElementById('js-fallback-result').className += ' no-svg';
+  }
+  </script>
+
+  <h4>Alternative JS solution</h4>
+  <pre><code class="language-markup">&lt;img src="medal.svg" onerror="this.src='medal.png';this.onerror=null;"></code></pre>
+
+  <div class="result">
+    <img src="assets/images/medal.svg" onerror="this.src='assets/images/medal.png';this.onerror=null;">
+  </div>
+
+  <h3>CSS only fallbacks</h3>
+
+  <h4>Fallback for SVG as &lt;img></h4>
+  <p>There is no pure CSS solution for this. But there is the
+    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_Image_Tag"><code>&lt;image></code></a> trick.</p>
+
+  <pre><code class="language-markup">&lt;svg width="128" height="128">
+  &lt;image xlink:href="cart.svg" src="cart.png" width="128" height="128" />
+&lt;/svg></code></pre>
+
+<div class="result">
+  <svg width="128" height="128">
+    <image xlink:href="assets/images/cart.svg" src="assets/images/cart.png" width="128" height="128" />
+  </svg>
+</div>
+
+  <p><strong>Fallback notes</strong>: Triggers multiple <em>aborted</em> requests in IE.
+    Requires absolute values for width and height, relative values like a percentage can be interpreted as 0.</p>
+
+  <h4>Fallback for SVG as &lt;object></h4>
+  <p>This is the easiest way to provide fallback content.</p>
+
+  <pre><code class="language-markup">&lt;object type="image/svg+xml" data="invoice.svg">
+  &lt;img src="invoice.png" alt="Bitmap replacement">
+&lt;/object></code></pre>
+
+<div class="result">
+  <object type="image/svg+xml" data="assets/images/invoice.svg" width="128" height="128">
+    <img src="assets/images/invoice.png" alt="Invoice">
+  </object>
+</div>
+
+  <p><strong>Fallback notes</strong>: Always loads the bitmap image in modern browsers. Se the latest solution.</p>
+
+  <h4>Fallback for inline SVG</h4>
+  <p>The solution is the same as for SVG as &lt;img></p>
+
+  <pre><code class="language-markup">&lt;svg viewBox="0 0 100 100">
+  &lt;!-- SVG code -->
+  &lt;image src="fallback.png" xlink:href="" width="128" height="128">
+&lt;/svg></code></pre>
+
+  <p>But there is one more trick with SVG &lt;description>, you can put in it any valid HTML including textual fallback or an image.</p>
+  <pre><code class="language-markup">&lt;svg viewBox="0 0 100 100">
+  &lt;!-- SVG object code -->
+  &lt;desc>&lt;img src="discount.png" width="128" height="128" />&lt;/desc>
+&lt;/svg></code></pre>
+
+<div class="result">
+    <svg height="128px" width="128px" viewBox="0 0 155 155" xmlns="http://www.w3.org/2000/svg">
+      <desc><img src="assets/images/discount.png" width="128" height="128" /></desc>
+      <g><circle cx="77.5" cy="77.5" fill="#8FDEF6" r="77.5"/><path d="M155,77.5c0-3.002-0.188-5.957-0.521-8.87L104.3,18.45l-0.68-0.68c-1.42-1.26-3.29-2.03-5.33-2.03   c-4.431,0-8.04,3.6-8.04,8.04v6.59h-6.99c-1.73,0-3.359,0.68-4.58,1.899c-0.59,0.59-1.039,1.26-1.359,1.99h-14.01   c0,8.08-6.551,14.641-14.631,14.641v68.84c0,0.76,0.291,1.529,0.881,2.119l34.818,34.82C123.956,151.195,155,117.98,155,77.5z" fill="#70C9E9"/><g><path d="M91.689,34.264H63.309c0,8.081-6.551,14.634-14.633,14.634v68.84c0,0.768,0.293,1.536,0.879,2.121    c0.586,0.586,1.354,0.879,2.121,0.879h51.648c0.768,0,1.535-0.293,2.121-0.879c0.586-0.585,0.879-1.354,0.879-2.121v-68.84    C98.24,48.897,91.689,42.345,91.689,34.264z M77.5,48.32c-2.07,0-3.748-1.678-3.748-3.747s1.678-3.747,3.748-3.747    c2.068,0,3.748,1.678,3.748,3.747S79.568,48.32,77.5,48.32z" fill="#FFFFFF"/><g><g><polygon fill="#343B43" points="58.469,114.973 54.439,114.973 54.439,110.942 56.745,110.942 56.745,112.666 58.469,112.666           "/><path d="M56.745,105.137h-2.306v-5.806h2.306V105.137z M56.745,93.525h-2.306V87.72h2.306V93.525z       M56.745,81.914h-2.306v-5.805h2.306V81.914z M56.745,70.303h-2.306v-5.805h2.306V70.303z" fill="#343B43"/><polygon fill="#343B43" points="56.745,58.691 54.439,58.691 54.439,54.662 58.469,54.662 58.469,56.968 56.745,56.968     "/><path d="M91.093,56.968h-5.437v-2.306h5.437V56.968z M80.219,56.968h-5.438v-2.306h5.438V56.968z M69.344,56.968      h-5.438v-2.306h5.438V56.968z" fill="#343B43"/><polygon fill="#343B43" points="100.56,58.691 98.254,58.691 98.254,56.968 96.529,56.968 96.529,54.662 100.56,54.662     "/><path d="M100.56,105.137h-2.306v-5.806h2.306V105.137z M100.56,93.525h-2.306V87.72h2.306V93.525z       M100.56,81.914h-2.306v-5.805h2.306V81.914z M100.56,70.303h-2.306v-5.805h2.306V70.303z" fill="#343B43"/><polygon fill="#343B43" points="100.56,114.973 96.529,114.973 96.529,112.666 98.254,112.666 98.254,110.942 100.56,110.942           "/><path d="M91.092,114.973h-5.437v-2.307h5.437V114.973z M80.218,114.973h-5.437v-2.307h5.437V114.973z       M69.344,114.973h-5.438v-2.307h5.438V114.973z" fill="#343B43"/></g></g><g><circle cx="77.5" cy="84.816" fill="#EA6552" r="15.564"/><g><rect fill="#FFFFFF" height="18.752" transform="matrix(0.7071 0.7071 -0.7071 0.7071 82.6742 -29.9583)" width="2.306" x="76.347" y="75.441"/><g><path d="M81.629,92.6c-2.013,0-3.65-1.639-3.65-3.652s1.638-3.652,3.65-3.652c2.015,0,3.653,1.639,3.653,3.652       S83.644,92.6,81.629,92.6z M81.629,87.6c-0.741,0-1.345,0.605-1.345,1.348s0.604,1.348,1.345,1.348       c0.743,0,1.348-0.605,1.348-1.348S82.372,87.6,81.629,87.6z" fill="#FFFFFF"/><path d="M73.369,84.34c-2.014,0-3.652-1.639-3.652-3.652c0-2.015,1.639-3.652,3.652-3.652       c2.015,0,3.653,1.638,3.653,3.652C77.022,82.701,75.384,84.34,73.369,84.34z M73.369,79.34c-0.742,0-1.347,0.604-1.347,1.348       c0,0.742,0.604,1.347,1.347,1.347c0.743,0,1.348-0.604,1.348-1.347C74.717,79.944,74.112,79.34,73.369,79.34z" fill="#FFFFFF"/></g></g></g><path d="M77.5,40.25c-2.389,0-4.324,1.936-4.324,4.323s1.936,4.324,4.324,4.324c2.387,0,4.324-1.937,4.324-4.324    S79.887,40.25,77.5,40.25z M77.5,47.455c-1.592,0-2.883-1.29-2.883-2.882c0-1.593,1.291-2.883,2.883-2.883    c1.59,0,2.881,1.29,2.881,2.883C80.381,46.165,79.09,47.455,77.5,47.455z" fill="#CCCBCA"/><g><g><path d="M78.221,44.573h-1.441v-7.716c0-1.732,0.674-3.361,1.9-4.586c1.225-1.226,2.852-1.9,4.584-1.9h15.023      v1.441H83.264c-1.348,0-2.613,0.525-3.564,1.477c-0.953,0.953-1.479,2.221-1.479,3.568V44.573z" fill="#343B43"/><path d="M98.287,31.813v-1.441c3.637,0,6.596-2.959,6.596-6.596c0-3.638-2.959-6.597-6.596-6.597      c-3.639,0-6.598,2.959-6.598,6.597H90.25c0-4.433,3.605-8.038,8.037-8.038s8.037,3.605,8.037,8.038      C106.324,28.207,102.719,31.813,98.287,31.813z" fill="#343B43"/><rect fill="#343B43" height="10.488" width="1.439" x="90.25" y="23.775"/><circle cx="77.5" cy="44.573" fill="#343B43" r="0.721"/></g></g></g></g>
+    </svg>
+</div>
+
+  <p><strong>Fallback notes</strong>: And again the same issue as with an &lt;object> fallback -
+    it loads fallback image in modern browsers.</p>
+
+  <h4>Fallback for SVG as CSS background-image</h4>
+  <p>The trick here is to find CSS syntax that is supported by browsers that support SVG,
+    but not by the older browsers. <code>linear-gradient</code> and multiple backgrounds do the trick:</p>
+
+  <pre><code class="language-css">.svg-icon-bg-fallback {
+  background: url(wallet.png);
+  background: url(wallet.svg), linear-gradient(transparent, transparent);
+}</code></pre>
+
+  <div class="result">
+     <span class="svg-icon-bg-fallback"></span>
+  </div>
+
+  <p><strong>Fallback notes</strong>: Slight performance hit on modern browsers from having to calculate the transparent gradient.</p>
+
+  <h4>Bulletproof CSS only fallback</h4>
+  <p>All the details about this fallback can be found in awesome <a href="https://css-tricks.com/svg-fallbacks/">CSS-Tricks article</a>.</p>
+
+  <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;title>&lt;/title>
+    &lt;style>
+     /* Set initial style for older browsers by default */
+     .svg-icon-that-works {
+         background: url('computer.png');
+         width: 128px;
+         height: 128px;
+     }
+
+     /* This one will be overwriten in modern browsers */
+     .fallback {
+     }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+    &lt;style>
+    &lt;![CDATA[
+      /* Modern browsers will apply this style when older will ignore it */
+      .fallback { background: none; background-image: none; display: none; }
+    ]]>
+    &lt;/style>
+  &lt;/svg>
+
+  &lt;!-- inline svg -->
+  &lt;svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+  &lt;switch>
+     &lt;g>&lt;!-- SVG object code -->&lt;/g>
+     &lt;foreignObject>
+         &lt;span class="svg-icon-that-works fallback">&lt;/span>
+     &lt;/foreignObject>
+  &lt;/switch>
+  &lt;/svg>
+
+  &lt;!-- external svg -->
+  &lt;object type="image/svg+xml" data="computer.svg">
+    &lt;div class="svg-icon-that-works fallback">&lt;/div>
+  &lt;/object>
+
+&lt;/body>
+&lt;/html></code></pre>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+    <style>
+    <![CDATA[
+      .fallback { background: none; background-image: none; display: none; }
+    ]]>
+    </style>
+  </svg>
+
+  <div class="result">
+    <p>External SVG file</p>
+    <object type="image/svg+xml" data="assets/images/computer.svg" width="128" height="128">
+      <span class="svg-icon-that-works fallback"></span>
+    </object>
+  </div>
+
+  <div class="result">
+    <p>Inline SVG</p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 155 155">
+      <switch>
+         <g><circle cx="77.5" cy="77.5" fill="#8FDEF6" r="77.5"/><path d="M155,77.5c0-0.011-0.001-0.021-0.001-0.031L119.12,41.59c-0.58-0.59-1.351-0.88-2.12-0.88H38   c-0.77,0-1.54,0.29-2.12,0.88C35.29,42.17,35,42.94,35,43.71v61.58c0,0.77,0.29,1.54,0.88,2.12l47.356,47.356   C123.357,151.827,155,118.37,155,77.5z" fill="#70C9E9"/><g><g><rect fill="#D9D8D7" height="11" width="25" x="65.001" y="108.291"/><rect fill="#FFFFFF" height="3" width="37" x="59.001" y="119.291"/><path d="M35,98.291V43.709c0-0.768,0.293-1.535,0.879-2.121s1.353-0.879,2.121-0.879h79     c0.768,0,1.537,0.293,2.121,0.879c0.586,0.586,0.879,1.354,0.879,2.121v54.582H35z" fill="#343B43"/><rect fill="#FFFFFF" height="46.581" width="74" x="40.501" y="46.209"/><path d="M120,105.29c0,0.769-0.293,1.536-0.879,2.121c-0.584,0.587-1.354,0.88-2.121,0.88H38     c-0.769,0-1.535-0.293-2.121-0.88C35.293,106.826,35,106.059,35,105.29v-6.999h85V105.29z" fill="#FFFFFF"/></g><g><g><path d="M93.756,69.508c0,8.979-7.277,16.246-16.252,16.246c-8.981,0-16.258-7.268-16.258-16.246      c0-8.974,7.276-16.264,16.258-16.264C86.479,53.244,93.756,60.534,93.756,69.508z" fill="#FECE66"/><path d="M90.505,69.508c0,7.18-5.81,13.002-13.001,13.002c-7.187,0-13.002-5.822-13.002-13.002      c0-7.188,5.815-13.011,13.002-13.011C84.695,56.497,90.505,62.32,90.505,69.508z" fill="#F5B540"/><g><g><path d="M78.877,70.578h-2.745c-1.136,0-2.205-0.445-3.002-1.254c-0.8-0.787-1.243-1.857-1.243-3.01        c0-1.135,0.438-2.203,1.243-3.012c0.791-0.801,1.856-1.24,3.002-1.24h5.923v2.143h-5.923c-0.561,0-1.096,0.22-1.479,0.612        c-0.396,0.405-0.624,0.936-0.624,1.497c0,0.572,0.215,1.1,0.607,1.488c0.406,0.408,0.938,0.628,1.496,0.628h2.745V70.578z" fill="#FECE66"/><path d="M78.877,76.951h-5.923v-2.143h5.923c0.547,0,1.092-0.232,1.483-0.623        c0.399-0.391,0.621-0.922,0.621-1.488c0-0.573-0.222-1.105-0.618-1.49c-0.398-0.409-0.925-0.629-1.486-0.629h-2.745v-2.147        h2.745c1.123,0,2.199,0.45,2.998,1.253c0.807,0.784,1.253,1.859,1.253,3.014c0,1.141-0.444,2.209-1.256,3.014        C81.071,76.508,79.993,76.951,78.877,76.951z" fill="#FECE66"/><rect fill="#FECE66" height="16.369" width="2.149" x="76.429" y="61.322"/></g></g></g><g><g><g><rect fill="#343B43" height="1.713" width="5.147" x="95.854" y="68.643"/><polygon fill="#343B43" points="99.98,62.589 100.419,64.245 95.448,65.578 95.002,63.921       "/><polygon fill="#343B43" points="100.42,74.752 99.98,76.409 95.002,75.076 95.448,73.42       "/></g><g><rect fill="#343B43" height="1.713" width="5.147" x="54.001" y="68.643"/><rect fill="#343B43" height="5.15" transform="matrix(0.2602 -0.9656 0.9656 0.2602 -19.4924 102.7269)" width="1.715" x="56.432" y="61.508"/><rect fill="#343B43" height="5.148" transform="matrix(-0.2595 -0.9657 0.9657 -0.2595 -0.1931 149.6801)" width="1.716" x="56.43" y="72.34"/></g></g></g></g><g><g><polygon fill="#343B43" points="89.188,86.973 85.271,77.271 94.973,81.186 91.195,83.193     "/><rect fill="#343B43" height="4.568" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -32.6277 90.0861)" width="1.543" x="91.658" y="82.144"/></g></g></g></g>
+         <foreignObject>
+             <span class="svg-icon-that-works fallback"></span>
+         </foreignObject>
+      </switch>
+    </svg>
+  </div>
+
+  <p><small>All fallbacks are tested in Android 2.3 and IE8 browsers.</small></p>
+</main>
+
+<script src="assets/scripts/prism.js"></script>
+</body>
+
+</html>
